@@ -37,43 +37,41 @@ const Home = () => {
     <>
       {movies && movies.length > 0 && (
         <Layout.Content className="main-container">
-          
-            <Row gutter={16}>
-              {movies.map((movie) => (
-                <Col
-                  xs={{ span: 24 }}
-                  sm={{ span: 12 }}
-                  md={{ span: 8 }}
-                  lg={{ span: 6 }}
-                  key={movie.id}
-                  className="movieCard-container"
-                >
-                  <Link to={`/movie/${movie.id}`}>
-                    <Card
-                      hoverable
-                      cover={
-                        <img
-                          className="movieCard-image"
-                          src={IMG_URL + movie.poster_path}
-                          alt={movie.title}
-                        />
-                      }
-                      size="small"
-                    >
-                      <Meta
-                        title={movie.title}
-                        description={
-                          movie.overview.length > 100
-                            ? movie.overview.substring(0, 100) + "..."
-                            : movie.overview
-                        }
+          <Row gutter={16}>
+            {movies.map((movie) => (
+              <Col
+                xs={{ span: 24 }}
+                sm={{ span: 12 }}
+                md={{ span: 8 }}
+                lg={{ span: 6 }}
+                key={movie.id}
+                className="movieCard-container"
+              >
+                <Link to={`/movie/${movie.id}`}>
+                  <Card
+                    hoverable
+                    cover={
+                      <img
+                        className="movieCard-image"
+                        src={IMG_URL + movie.poster_path}
+                        alt={movie.title}
                       />
-                    </Card>
-                  </Link>
-                </Col>
-              ))}
-            </Row>
-          
+                    }
+                    size="small"
+                  >
+                    <Meta
+                      title={movie.title}
+                      description={
+                        movie.overview.length > 100
+                          ? movie.overview.substring(0, 100) + "..."
+                          : movie.overview
+                      }
+                    />
+                  </Card>
+                </Link>
+              </Col>
+            ))}
+          </Row>
         </Layout.Content>
       )}
     </>
