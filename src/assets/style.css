@@ -90,7 +90,7 @@ input[placeholder="Password"] {
 .loginButton:hover {
   width: 100%;
   background: #51a4ac !important;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   height: 40px;
   border: none;
   margin-top: 40px;
@@ -117,7 +117,7 @@ input[placeholder="Password"] {
   color: #51a4ac;
 }
 
-.movieCard-container{
+.movieCard-container {
   padding: 8px 8px;
 }
 

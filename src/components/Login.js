@@ -103,7 +103,6 @@ const Login = () => {
                       <Button
                         className="loginButton"
                         type="primary"
-                        shape="round"
                         htmlType="submit"
                       >
                         Login

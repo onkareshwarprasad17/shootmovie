@@ -1,0 +1,94 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "small",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "medium",
+      "width": 768,
+      "height": 992
+    },
+    {
+      "label": "large",
+      "width": 1200,
+      "height": 1024
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "when username is not valid",
+      "cookiePath": "",
+      "url": "http://localhost:3000/",
+      "referenceUrl": "",
+      "selectors": [],
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "keyPressSelectors": [
+        {
+          "selector": ".userInput",
+          "keyPress": "Abc"
+        },
+        {
+          "selector": "input[placeholder='Password']",
+          "keyPress": "Abcd@123"
+        }
+      ],
+      "hoverSelector": "",
+      "clickSelectors": ["svg", ".loginButton"],
+      "postInteractionWait": 1000,
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "when username and password are valid",
+      "cookiePath": "",
+      "url": "http://localhost:3000/",
+      "referenceUrl": "",
+      "selectors": [],
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "keyPressSelectors": [
+        {
+          "selector": ".userInput",
+          "keyPress": "abc"
+        },
+        {
+          "selector": "input[placeholder='Password']",
+          "keyPress": "Abcd@123"
+        }
+      ],
+      "hoverSelector": "",
+      "clickSelectors": ["svg", ".loginButton"],
+      "postInteractionWait": 2000,
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  }
+}
