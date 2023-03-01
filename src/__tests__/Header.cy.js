@@ -1,18 +1,17 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import { userLoggedIn, userLoggedOut } from "../appSlice";
-import { AppContext } from "../components/context/context";
+import { AuthContext } from "../components/context/context";
 import Header from "../components/Header";
 import store from "../components/redux/store";
 
-function renderLoginCommponent() {
+function renderLoginCommponent(user) {
   return (
     <MemoryRouter>
       <Provider store={store}>
-        <AppContext.Provider value={store.getState().user.isLoggedIn}>
+        <AuthContext.Provider value={{ user }}>
           <Header />
-        </AppContext.Provider>
+        </AuthContext.Provider>
       </Provider>
     </MemoryRouter>
   );
@@ -27,17 +26,17 @@ describe("Header Component", () => {
   });
 
   it("shows the logout button only when user is logged in", () => {
-    const appStore = store;
-    appStore.dispatch(userLoggedIn());
-    cy.mount(renderLoginCommponent());
+    let login = cy.stub().returns("eyJhbGciOiJIUzI1NiIsIn");
+    let user = login();
+    cy.mount(renderLoginCommponent(user));
     cy.get(".logout-button").should("exist");
-    cy.wait(5000);
+    cy.wait(2000);
   });
 
   it("hide the logout button only when user is logged out", () => {
-    const appStore = store;
-    appStore.dispatch(userLoggedOut());
-    cy.mount(renderLoginCommponent());
+    let logout = cy.stub().returns(null);
+    let user = logout();
+    cy.mount(renderLoginCommponent(user));
     cy.get(".logout-button").should("not.exist");
   });
 });

@@ -7,7 +7,7 @@ import {
 } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import { AppContext } from "../components/context/context";
+import { AuthContext } from "../components/context/context";
 import Login from "../components/Login";
 import store from "../components/redux/store";
 
@@ -16,19 +16,22 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => jest.fn(),
 }));
 
+let appStore;
+
 function renderLoginComponent() {
+  let login = jest.fn();
+  let logout = jest.fn();
+  let user = "eyJhbGciOiJIUzI1NiIsIn";
   return (
     <MemoryRouter>
       <Provider store={appStore}>
-        <AppContext.Provider value={store.getState().user.isLoggedIn}>
+        <AuthContext.Provider value={{ user, login, logout }}>
           <Login />
-        </AppContext.Provider>
+        </AuthContext.Provider>
       </Provider>
     </MemoryRouter>
   );
 }
-
-let appStore;
 
 describe("Login Component renders", () => {
   beforeEach(() => {
