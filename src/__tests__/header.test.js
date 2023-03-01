@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { AppContext } from "../components/context/context";
+import { AuthContext, AuthProvider } from "../components/context/context";
 import Header from "../components/Header";
-import configureStore from "redux-mock-store";
+import store from "../components/redux/store";
 
 // Mocking useNavigate Hook
 jest.mock("react-router-dom", () => ({
@@ -11,30 +11,28 @@ jest.mock("react-router-dom", () => ({
 }));
 
 describe("Header component renders", () => {
-  let initialLoggedInState = { isLoggedIn: true };
-  const mockStore = configureStore();
-  let store;
-
   test("logout button should render when user is logged in", async () => {
-    store = mockStore(initialLoggedInState);
+    let login = jest.fn();
+    let logout = jest.fn();
+    let user = "eyJhbGciOiJIUzI1NiIsIn";
     const { getAllByText } = render(
       <Provider store={store}>
-        <AppContext.Provider value={store.getState().isLoggedIn}>
+        <AuthContext.Provider value={{ user, login, logout }}>
           <Header />
-        </AppContext.Provider>
+        </AuthContext.Provider>
       </Provider>
     );
+    login();
     expect(getAllByText("Logout")[0]).toBeInTheDocument();
   });
 
   test("logout button should not render when user is logged out", async () => {
-    initialLoggedInState = { isLoggedIn: false };
-    store = mockStore(initialLoggedInState);
+    // By default, user is logged out at the start
     render(
       <Provider store={store}>
-        <AppContext.Provider value={store.getState().isLoggedIn}>
+        <AuthProvider>
           <Header />
-        </AppContext.Provider>
+        </AuthProvider>
       </Provider>
     );
 

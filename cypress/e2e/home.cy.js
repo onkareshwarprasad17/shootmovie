@@ -13,7 +13,7 @@ describe("Correct User", () => {
     cy.get(".passwordInput").type("Abcd@123");
 
     cy.get(".loginButton").click();
-    cy.get(".ant-message-success").and("have.text", "Login Succesful!");
+    cy.get(".ant-message-success").and("have.text", "Login Successful!");
 
     cy.intercept(
       "https://api.themoviedb.org/3/movie/popular?api_key=76753a92ec5331ee546d385fbd9eb031",

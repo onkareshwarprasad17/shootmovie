@@ -58,7 +58,7 @@ const Movie = () => {
               </Typography.Title>
               <Typography.Text>{movie.overview}</Typography.Text>
               <Divider orientation="left">Genres</Divider>
-              {console.log(movie.genres)}
+
               <Space>
                 {movie?.genres.map((genre) => (
                   <Badge count={genre.name} showZero key={genre.name}></Badge>

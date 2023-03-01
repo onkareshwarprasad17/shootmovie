@@ -26,11 +26,19 @@
   color: #51a4ac;
 }
 
+.header li:nth-child(2) {
+  margin-left: auto;
+}
+
+.header > li:hover {
+  color: none;
+}
+
 .header .logout-button,
 .header .logout-button:hover {
   background: #51a4ac;
   margin-left: auto;
-  margin-right: 40px;
+  margin-right: 7rem;
 }
 
 .login-container {
@@ -152,4 +160,24 @@ input[placeholder="Password"] {
   .login-modal-subHeading {
     font-size: 12px !important;
   }
+}
+
+.beta-tag {
+  background: #af3b6e;
+  transform: rotate(45deg);
+  position: absolute;
+  width: 10rem;
+  height: 3rem;
+  right: -3rem;
+  top: 0.4rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  color: #f2faff;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 39px;
 }

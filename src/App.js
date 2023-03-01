@@ -6,11 +6,13 @@ import Footer from "./components/Footer";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Movie from "./components/Movie";
-import { AppContext } from "./components/context/context";
-import React, { useMemo, useReducer, useState } from "react";
+import { AuthProvider } from "./components/context/context";
+import React, { useEffect, useMemo, useReducer, useState } from "react";
 import Error from "./components/Error";
 import appReducer from "./appReducer";
 import { useDispatch, useSelector } from "react-redux";
+import Beta from "./components/Beta";
+import PrivateRoutes from "./components/PrivateRoutes";
 
 function App() {
   //#region using useState hook
@@ -31,40 +33,33 @@ function App() {
 
   //#endregion
 
-  // -------------- Using Redux Toolkit (useSelector) --------------
-  const loggedIn = useSelector((state) => state.user.isLoggedIn);
-
   return (
-    <>
-      {/* <AppContext.Provider
-        value={{ loggedIn: state.loggedIn, dispatch: dispatch }}
-      > */}
-      <AppContext.Provider value={loggedIn}>
-        {loggedIn ? (
-          <>
-            <Header />
-            <Routes>
-              <Route path="/" element={<Login />} />
+    <AuthProvider>
+      <Beta />
 
-              <>
-                <Route path="/home" element={<Home />} />
-                <Route path="/movie/:id" element={<Movie />} />
-              </>
-            </Routes>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PrivateRoutes>
+              <Home />
+            </PrivateRoutes>
+          }
+        />
+        <Route
+          path="/movie/:id"
+          element={
+            <PrivateRoutes>
+              <Movie />
+            </PrivateRoutes>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+      </Routes>
 
-            <Footer />
-          </>
-        ) : (
-          <>
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/home" element={<Error />} />
-              <Route path="/movie/:id" element={<Error />} />
-            </Routes>
-          </>
-        )}
-      </AppContext.Provider>
-    </>
+      <Footer />
+    </AuthProvider>
   );
 }
 
