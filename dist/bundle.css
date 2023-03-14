@@ -1,0 +1,218 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.root {
+  min-height: 100%;
+  height: auto;
+  background: #f2faff;
+}
+
+.header {
+  height: 52px;
+  align-items: center;
+  offset: 24px;
+  background: #dfe7f7;
+  box-shadow: 0px 5px 30px #accbe1;
+}
+
+.header .logo {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 49px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.17em;
+  margin-left: 40px;
+  color: #51a4ac;
+  cursor: pointer;
+}
+
+.header li:nth-child(2) {
+  margin-left: auto;
+}
+
+.header > li:hover {
+  color: none;
+}
+
+.header .logout-button,
+.header .logout-button:hover {
+  background: #51a4ac;
+  margin-left: auto;
+  margin-right: 7rem;
+}
+
+.login-container {
+  min-height: 100vh;
+}
+
+.login-modal {
+  background: #dfe7f7;
+  border-radius: 80px;
+  padding: 15px;
+  height: 25rem;
+}
+
+.login-modal-heading,
+.login-modal-subHeading {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 49px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: #51a4ac !important;
+}
+
+.inputField {
+  margin-bottom: 40px;
+}
+
+.login-modal-subHeading {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.userInput,
+.passwordInput,
+.userInput:focus,
+.passwordInput:focus {
+  border-radius: 20px;
+  height: 40px;
+  border: none;
+  color: #51a4ac !important;
+  text-decoration-color: #51a4ac !important;
+}
+
+input[placeholder='Password'] {
+  color: #51a4ac;
+}
+
+.loginButton,
+.loginButton:hover {
+  width: 100%;
+  background: #51a4ac !important;
+  /* border-radius: 20px; */
+  height: 40px;
+  border: none;
+  margin-top: 40px;
+}
+
+.footer {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dfe7f7;
+  box-shadow: 0px 10px 30px rgba(210, 230, 249, 0.63);
+
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.17em;
+
+  color: #51a4ac;
+}
+
+.movieCard-container {
+  padding: 8px 8px;
+}
+
+.movieCard-image {
+  height: 16rem;
+  width: 50px;
+}
+
+.singleMovieCard-image {
+  width: 20rem;
+}
+
+.main-container,
+.movie-container {
+  margin: 40px;
+}
+
+.movie-container {
+  padding: 20px 20px;
+}
+
+.movie-description {
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+  .login-modal-heading {
+    font-size: 18px !important;
+    font-weight: 400px !important;
+  }
+
+  .login-modal-subHeading {
+    font-size: 12px !important;
+  }
+}
+.beta-tag-container {
+  position: absolute;
+  left: auto;
+  right: 0px;
+  height: 120px;
+  width: 160px;
+  overflow: hidden;
+}
+.beta-tag {
+  background: #af3b6e;
+  transform: rotate(45deg);
+  position: relative;
+  width: 155px;
+  height: 51px;
+  right: -3rem;
+  top: 0.4rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  color: #f2faff;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 39px;
+}
+
+.movieCard-title {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #51a4ac;
+}
+.movieCard-description {
+  color: #adadad;
+}
+
+
+/*# sourceMappingURL=bundle.css.map*/
