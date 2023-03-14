@@ -1,10 +1,12 @@
-import { createContext, useState } from "react";
+import React from 'react';
+import { createContext, useState } from 'react';
 
 // export const AppContext = createContext(false);
 
 export const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const userToken = localStorage.getItem('user');
+  const [user, setUser] = useState(userToken);
 
   const login = (token) => {
     setUser(token);

@@ -8,11 +8,11 @@ import {
   Row,
   Space,
   Typography,
-} from "antd";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMovieDetails } from "./movieSlice";
+} from 'antd';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMovieDetails } from './movieSlice';
 const IMG_URL = `https://image.tmdb.org/t/p/w500/`;
 
 const Movie = () => {
@@ -41,6 +41,7 @@ const Movie = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log('movie page');
     dispatch(fetchMovieDetails(params.id));
   }, [dispatch]);
 
@@ -60,14 +61,14 @@ const Movie = () => {
               <Divider orientation="left">Genres</Divider>
 
               <Space>
-                {movie?.genres.map((genre) => (
-                  <Badge count={genre.name} showZero key={genre.name}></Badge>
+                {movie?.genres?.map((genre, index) => (
+                  <Badge count={genre.name} showZero key={index}></Badge>
                 ))}
               </Space>
               <Divider orientation="left">Production Company(s)</Divider>
               <Space>
-                {movie?.production_companies.map((company) => (
-                  <Badge count={company.name} ke={company.name}></Badge>
+                {movie?.production_companies?.map((company, index) => (
+                  <Badge count={company.name} key={index}></Badge>
                 ))}
               </Space>
               <Descriptions

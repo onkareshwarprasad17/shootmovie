@@ -1,12 +1,12 @@
-import { Layout } from "antd";
-import React from "react";
+import { Layout } from 'antd';
+import React from 'react';
 
 const Footer = () => {
   return (
     <Layout.Footer
       className="footer"
       style={{
-        textAlign: "center",
+        textAlign: 'center',
       }}
     >
       ©2023 Created by Onkareshwar

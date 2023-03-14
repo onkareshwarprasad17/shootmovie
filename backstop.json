@@ -23,7 +23,7 @@
     {
       "label": "when username is not valid",
       "cookiePath": "",
-      "url": "http://localhost:3000/",
+      "url": "http://localhost:4000/",
       "referenceUrl": "",
       "selectors": [],
       "readyEvent": "",
@@ -52,7 +52,7 @@
     {
       "label": "when username and password are valid",
       "cookiePath": "",
-      "url": "http://localhost:3000/",
+      "url": "http://localhost:4000/",
       "referenceUrl": "",
       "selectors": [],
       "readyEvent": "",
@@ -63,16 +63,16 @@
       "keyPressSelectors": [
         {
           "selector": ".userInput",
-          "keyPress": "abc"
+          "keyPress": "mor_2314"
         },
         {
           "selector": "input[placeholder='Password']",
-          "keyPress": "Abcd@123"
+          "keyPress": "83r5^_"
         }
       ],
       "hoverSelector": "",
       "clickSelectors": ["svg", ".loginButton"],
-      "postInteractionWait": 2000,
+      "postInteractionWait": 5000,
       "selectorExpansion": true,
       "expect": 0,
       "misMatchThreshold": 0,
