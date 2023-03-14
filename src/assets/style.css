@@ -13,7 +13,7 @@
 }
 
 .header .logo {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
@@ -24,6 +24,7 @@
   letter-spacing: 0.17em;
   margin-left: 40px;
   color: #51a4ac;
+  cursor: pointer;
 }
 
 .header li:nth-child(2) {
@@ -54,7 +55,7 @@
 
 .login-modal-heading,
 .login-modal-subHeading {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
@@ -90,7 +91,7 @@
   text-decoration-color: #51a4ac !important;
 }
 
-input[placeholder="Password"] {
+input[placeholder='Password'] {
   color: #51a4ac;
 }
 
@@ -112,7 +113,7 @@ input[placeholder="Password"] {
   background: #dfe7f7;
   box-shadow: 0px 10px 30px rgba(210, 230, 249, 0.63);
 
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -161,13 +162,20 @@ input[placeholder="Password"] {
     font-size: 12px !important;
   }
 }
-
+.beta-tag-container {
+  position: absolute;
+  left: auto;
+  right: 0px;
+  height: 120px;
+  width: 160px;
+  overflow: hidden;
+}
 .beta-tag {
   background: #af3b6e;
   transform: rotate(45deg);
-  position: absolute;
-  width: 10rem;
-  height: 3rem;
+  position: relative;
+  width: 155px;
+  height: 51px;
   right: -3rem;
   top: 0.4rem;
   display: flex;
@@ -175,9 +183,19 @@ input[placeholder="Password"] {
   flex-direction: row;
   justify-content: center;
   color: #f2faff;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 39px;
+}
+
+.movieCard-title {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #51a4ac;
+}
+.movieCard-description {
+  color: #adadad;
 }

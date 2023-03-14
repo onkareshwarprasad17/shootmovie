@@ -1,32 +1,36 @@
-import { Button, Col, Form, Input, message, Row, Typography } from "antd";
-import React, { useContext } from "react";
-import users from "../assets/userDetails.json";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "./context/context";
+import { Button, Col, Form, Input, message, Row, Typography } from 'antd';
+import React, { useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from './context/context';
 
 const Login = () => {
-  const userDetails = users.users;
   const navigate = useNavigate();
+  const location = useLocation();
   const auth = useContext(AuthContext);
+  let redirectPath = location.state?.path || '/home';
 
   const getLoginToken = async (loginData) => {
-    return fetch("https://fakestoreapi.com/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginData),
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
+    if (navigator.onLine) {
+      try {
+        let response = await fetch('https://fakestoreapi.com/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(loginData),
+        });
+        if (!response.ok) {
+          throw new Error('unauthorized');
         }
-        throw new Error("unauthorized");
-      })
-      .then((data) => data.token)
-      .catch((error) => {
+        let data = await response.json();
+        console.log(response);
+        return data.token;
+      } catch (error) {
         return error.message;
-      });
+      }
+    } else {
+      location.reload();
+    }
   };
 
   const submitLogin = async (values) => {
@@ -36,13 +40,14 @@ const Login = () => {
     };
 
     const token = await getLoginToken(data);
-    if (token === "unauthorized") {
+    if (token === 'unauthorized') {
       auth.login(null);
-      message.error("Invalid username or password!");
+      message.error('Invalid username or password!');
     } else {
-      message.success("Login Successful!");
+      localStorage.setItem('user', token);
       auth.login(token);
-      navigate("/");
+      message.success('Login Successful!');
+      navigate(redirectPath, { replace: true });
     }
   };
 
@@ -52,7 +57,7 @@ const Login = () => {
 
   return (
     <>
-      <Row align="middle" justify={"center"} className="login-container">
+      <Row align="middle" justify={'center'} className="login-container">
         <Col
           sm={{ span: 16 }}
           md={{ span: 12 }}
@@ -81,7 +86,7 @@ const Login = () => {
                     rules={[
                       {
                         required: true,
-                        message: "Username is required!",
+                        message: 'Username is required!',
                       },
                     ]}
                   >
@@ -93,7 +98,7 @@ const Login = () => {
                     rules={[
                       {
                         required: true,
-                        message: "Password is required!",
+                        message: 'Password is required!',
                       },
                     ]}
                   >

@@ -1,9 +1,8 @@
-import { Card, Col, Layout, Row, Space } from "antd";
-import Meta from "antd/es/card/Meta";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { fetchMovies } from "./homeSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { Card, Col, Layout, Row } from 'antd';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { fetchMovies } from './homeSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const IMG_URL = `https://image.tmdb.org/t/p/w500/`;
 
@@ -38,14 +37,15 @@ const Home = () => {
       {movies && movies.length > 0 && (
         <Layout.Content className="main-container">
           <Row gutter={16}>
-            {movies.map((movie) => (
+            {movies.map((movie, index) => (
               <Col
                 xs={{ span: 24 }}
                 sm={{ span: 12 }}
                 md={{ span: 8 }}
                 lg={{ span: 6 }}
-                key={movie.id}
+                key={index}
                 className="movieCard-container"
+                data-testid="column"
               >
                 <Link to={`/movie/${movie.id}`}>
                   <Card
@@ -59,14 +59,12 @@ const Home = () => {
                     }
                     size="small"
                   >
-                    <Meta
-                      title={movie.title}
-                      description={
-                        movie.overview.length > 100
-                          ? movie.overview.substring(0, 100) + "..."
-                          : movie.overview
-                      }
-                    />
+                    <p className="movieCard-title">{movie.title}</p>
+                    <p className="movieCard-description">
+                      {movie.overview.length > 100
+                        ? movie.overview.substring(0, 100) + '...'
+                        : movie.overview}
+                    </p>
                   </Card>
                 </Link>
               </Col>

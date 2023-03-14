@@ -1,0 +1,114 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\backstop_default_when_username_is_not_valid_0__0_small.png",
+        "test": "..\\bitmaps_test\\20230307-201743\\backstop_default_when_username_is_not_valid_0__0_small.png",
+        "selector": "",
+        "fileName": "backstop_default_when_username_is_not_valid_0__0_small.png",
+        "label": "when username is not valid",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0,
+        "url": "http://localhost:4000/",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "small",
+        "engineErrorMsg": "net::ERR_CONNECTION_REFUSED at http://localhost:4000/",
+        "error": "Reference file not found C:\\Javscript Course\\React\\Webpack\\Cinemash\\backstop_data\\bitmaps_reference\\backstop_default_when_username_is_not_valid_0__0_small.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\backstop_default_when_username_is_not_valid_0__1_medium.png",
+        "test": "..\\bitmaps_test\\20230307-201743\\backstop_default_when_username_is_not_valid_0__1_medium.png",
+        "selector": "",
+        "fileName": "backstop_default_when_username_is_not_valid_0__1_medium.png",
+        "label": "when username is not valid",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0,
+        "url": "http://localhost:4000/",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "medium",
+        "engineErrorMsg": "net::ERR_CONNECTION_REFUSED at http://localhost:4000/",
+        "error": "Reference file not found C:\\Javscript Course\\React\\Webpack\\Cinemash\\backstop_data\\bitmaps_reference\\backstop_default_when_username_is_not_valid_0__1_medium.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\backstop_default_when_username_is_not_valid_0__2_large.png",
+        "test": "..\\bitmaps_test\\20230307-201743\\backstop_default_when_username_is_not_valid_0__2_large.png",
+        "selector": "",
+        "fileName": "backstop_default_when_username_is_not_valid_0__2_large.png",
+        "label": "when username is not valid",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0,
+        "url": "http://localhost:4000/",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "large",
+        "engineErrorMsg": "net::ERR_CONNECTION_REFUSED at http://localhost:4000/",
+        "error": "Reference file not found C:\\Javscript Course\\React\\Webpack\\Cinemash\\backstop_data\\bitmaps_reference\\backstop_default_when_username_is_not_valid_0__2_large.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\backstop_default_when_username_and_password_are_valid_0__0_small.png",
+        "test": "..\\bitmaps_test\\20230307-201743\\backstop_default_when_username_and_password_are_valid_0__0_small.png",
+        "selector": "",
+        "fileName": "backstop_default_when_username_and_password_are_valid_0__0_small.png",
+        "label": "when username and password are valid",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0,
+        "url": "http://localhost:4000/",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "small",
+        "engineErrorMsg": "net::ERR_CONNECTION_REFUSED at http://localhost:4000/",
+        "error": "Reference file not found C:\\Javscript Course\\React\\Webpack\\Cinemash\\backstop_data\\bitmaps_reference\\backstop_default_when_username_and_password_are_valid_0__0_small.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\backstop_default_when_username_and_password_are_valid_0__1_medium.png",
+        "test": "..\\bitmaps_test\\20230307-201743\\backstop_default_when_username_and_password_are_valid_0__1_medium.png",
+        "selector": "",
+        "fileName": "backstop_default_when_username_and_password_are_valid_0__1_medium.png",
+        "label": "when username and password are valid",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0,
+        "url": "http://localhost:4000/",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "medium",
+        "engineErrorMsg": "net::ERR_CONNECTION_REFUSED at http://localhost:4000/",
+        "error": "Reference file not found C:\\Javscript Course\\React\\Webpack\\Cinemash\\backstop_data\\bitmaps_reference\\backstop_default_when_username_and_password_are_valid_0__1_medium.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\bitmaps_reference\\backstop_default_when_username_and_password_are_valid_0__2_large.png",
+        "test": "..\\bitmaps_test\\20230307-201743\\backstop_default_when_username_and_password_are_valid_0__2_large.png",
+        "selector": "",
+        "fileName": "backstop_default_when_username_and_password_are_valid_0__2_large.png",
+        "label": "when username and password are valid",
+        "requireSameDimensions": true,
+        "misMatchThreshold": 0,
+        "url": "http://localhost:4000/",
+        "referenceUrl": "",
+        "expect": 0,
+        "viewportLabel": "large",
+        "engineErrorMsg": "net::ERR_CONNECTION_REFUSED at http://localhost:4000/",
+        "error": "Reference file not found C:\\Javscript Course\\React\\Webpack\\Cinemash\\backstop_data\\bitmaps_reference\\backstop_default_when_username_and_password_are_valid_0__2_large.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "backstop_default"
+}
