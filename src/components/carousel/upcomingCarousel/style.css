@@ -1,0 +1,129 @@
+.upcoming-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-items {
+  padding: 5% 0;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.carousel-items .carousel-item {
+  width: 90%;
+  height: 10em;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-items .carousel-item img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.carousel-items .carousel-item .text {
+  position: absolute;
+  left: 5%;
+  bottom: 10%;
+  color: var(--text-color);
+  font-size: 0.8em;
+  z-index: 1;
+  opacity: 0.8;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.carousel-items .carousel-item .opacity-layer {
+  width: 100%;
+  height: 4em;
+  background: linear-gradient(0deg, #031726, transparent 4em);
+  position: relative;
+  bottom: 4.25em;
+  left: 0;
+}
+
+.upcoming-carousel .carousel-gradient .top,
+.upcoming-carousel .carousel-gradient .left {
+  display: none;
+}
+
+@media screen {
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .carousel-items .carousel-item {
+      height: 18em;
+    }
+
+    .carousel-items .carousel-item .text {
+      font-size: 1.2em;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .carousel-items .carousel-item {
+      height: 14em;
+      width: 90%;
+    }
+
+    .carousel-items .carousel-item .text {
+      font-size: 1em;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .carousel-items .carousel-item {
+      height: 20em;
+      width: 95%;
+    }
+
+    .carousel-items .carousel-item .text {
+      font-size: 1em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .carousel-items .carousel-item {
+      height: 20rem;
+      min-width: calc(100% - 5em);
+    }
+
+    .carousel-items .carousel-item .text {
+      font-size: 22px;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .carousel-items .carousel-item {
+      height: 25rem;
+      min-width: calc(100% - 10em);
+      width: 90%;
+    }
+
+    .carousel-items .carousel-item .text {
+      font-size: 28px;
+    }
+  }
+
+  @media (min-width: 2300px) {
+    .carousel-items .carousel-item {
+      height: 35rem;
+      /* min-width: calc(100% - 15em);
+      width: 85%; */
+    }
+
+    .carousel-items .carousel-item .text {
+      font-size: 30px;
+    }
+  }
+}

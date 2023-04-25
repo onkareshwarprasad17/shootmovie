@@ -1,0 +1,200 @@
+.header {
+  background-color: var(--blue-color);
+  color: var(--text-color);
+  display: flex;
+  padding: 0.2em 1em;
+  justify-content: space-between;
+  /* position: relative; */
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  z-index: 1;
+}
+
+.header .brand-logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.17em;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.header .menu-items {
+  display: none;
+  list-style-type: none;
+  align-items: center;
+}
+
+.header .menu-items .menu-item {
+  margin: 0 14px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.header .menu-items .menu-item.hide {
+  display: none;
+}
+
+.header .menu-items .menu-item .search-media-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header .menu-items .menu-item .search-media-input input {
+  transition: 250ms cubic-bezier(0.17, 0.67, 0.99, 1.07);
+  display: none;
+}
+
+.header .menu-items .menu-item .search-media-input input.visible,
+.header .menu-items .menu-item .search-media-input input.visible::placeholder {
+  display: flex;
+  font-size: 1rem;
+  color: var(--second-bgColor);
+  border: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.header .menu-items .menu-item .search-media-input input.visible::placeholder {
+  opacity: 0.7;
+}
+
+.header .menu-items .menu-item .search-media-input:has(input.visible) {
+  background-color: var(--text-color);
+  padding: 0.5rem 1rem;
+  color: var(--blue-color);
+  border-radius: 20px;
+  animation: searchAnimation 0.2s ease-in-out;
+  transition: 150ms cubic-bezier(0.5, 0.5, 0.5, 0.5);
+  width: 100%;
+}
+
+.header .menu-items .menu-item .search-media-input:not(:has(input.visible)) {
+  transition: 150ms cubic-bezier(0.5, 0.5, 0.5, 0.5);
+}
+
+.header .menu-items .menu-item .search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.header .mobile-menu-items {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu-items img {
+  height: 1rem;
+  width: 2rem;
+  cursor: pointer;
+}
+
+.close-hamburger {
+  animation: rotateHamClose 0.25s linear;
+}
+
+.open-hamburger {
+  animation: rotateHamOpen 0.3s linear;
+}
+
+@media only screen and (min-width: 768px) {
+  .header .menu-items {
+    display: flex;
+  }
+  .header .mobile-menu-items {
+    display: none;
+  }
+}
+
+/* #region keyframes */
+@keyframes rotateHamOpen {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateHamClose {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes searchAnimation {
+  0% {
+    filter: blur(2px);
+  }
+  50% {
+    filter: blur(0.5px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+/* #endregion */
+@media only screen and (max-width: 375px) {
+  .header .brand-logo {
+    font-size: 1rem;
+  }
+  .header.mobileMenu .menu-items .menu-item {
+    font-size: 14px !important;
+    line-height: 16px !important;
+    letter-spacing: 0.1em;
+  }
+}
+@media only screen and (max-width: 767.98px) {
+  .header.mobileMenu .menu-items {
+    display: flex;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--blue-color);
+    padding: 0.5em 1em;
+    z-index: 1;
+  }
+
+  .header.mobileMenu .menu-items .menu-item:first-child {
+    order: 3;
+    margin-left: auto;
+    margin-right: 8px;
+  }
+  .header.mobileMenu
+    .menu-items
+    .menu-item:first-child:has(.search-media-input input.visible) {
+    width: inherit;
+  }
+
+  .header.mobileMenu .menu-items .menu-item:last-child {
+    order: 4;
+  }
+  .header.mobileMenu .menu-items .menu-item {
+    margin: 0 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  .header .menu-items .menu-item {
+    font-size: 14px;
+  }
+}

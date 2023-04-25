@@ -1,8 +1,0 @@
-{
-  "short_name": "SHOOTMovie",
-  "name": "This is movie listing app!",
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}

@@ -1,40 +1,27 @@
-/* eslint-disable no-undef */
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  mode: 'development',
-  entry: {
-    bundle: path.resolve(__dirname, 'src/index.js'),
-  },
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
     publicPath: '/',
-    clean: true,
-    assetModuleFilename: '[name][ext]',
-  },
-  devtool: 'source-map',
-  devServer: {
-    historyApiFallback: true,
-    static: {
-      directory: path.resolve(__dirname, 'dist'),
-    },
-    port: 4000,
-    hot: true,
-    open: true,
-    compress: true,
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$|jsx/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+            presets: [
+              ['@babel/preset-env', { targets: 'defaults' }],
+              ['@babel/preset-react', { runtime: 'automatic' }],
+            ],
           },
         },
       },
@@ -43,17 +30,30 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.json$/,
-        type: 'json',
+        test: /\.(jpg|png)$/,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.svg/,
+        type: 'asset/inline',
       },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      inject: true,
-      filename: 'index.html',
-      template: path.resolve(__dirname, 'public/index.html'),
+    new HTMLWebpackPlugin({
+      template: './index.html',
+      favicon: './src/assets/LogoIcon.svg',
     }),
     new MiniCssExtractPlugin(),
+    // new BundleAnalyzer(),
   ],
+  devServer: {
+    hot: true,
+    port: 3000,
+    open: true,
+    historyApiFallback: true,
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
 };

@@ -4,9 +4,11 @@ SHOOTMovie is a ReactJS project which lists movies, and show their respective de
 
 ## Description
 
-This project fetches a list of popular movies from TMDB API and shows it in the browser. It is built using ReactJS along with AntDesign UI. I have used Redux for the state management. And, for testing the components, I have used Jest and RTL, Cypress and BackstopJs.
+This project fetches a list of popular movies from TMDB API and shows it in the browser. It is built using ReactJS along with AntDesign UI icons at few places. I have used Redux for the state management. And, for testing the components, I have used Jest and RTL, Cypress and BackstopJs.
 
-For the login functionality, I have used fakestoreapi's HTTP requests.
+## Technical Overview
+
+I have tried not remove extra dependencies for this project related to UI. At mostly all places in code, I have tried to be organic and used HTML, CSS and JS for building elements, instead of depending on the third-party libraries. Also, in the newest version, I re-designed and re-structured the project with new design and using Webpack instead of create-react-app.
 
 I plan to add more features and UI components to this project, in the near future.
 
@@ -17,10 +19,10 @@ I plan to add more features and UI components to this project, in the near futur
 - JavaScript
 - ReactJS
 - Redux
-- AntDesign UI
 - Jest and RTL
 - Cypress
 - BackstopJS
+- Ant Design Icons
 
 ## Steps to run the project on local machine
 
@@ -32,37 +34,8 @@ I plan to add more features and UI components to this project, in the near futur
    ```
 3. Provide any username and respective password as per the json file(userDetails.json)
 
-### Dependencies to install
-
-- Install [NodeJS](https://nodejs.org/en/download/) package manager.
-- Install [AntDesign](https://ant.design/docs/react/introduce#installation) UI Library.
-- Install react-redux, by running below command:-
-  ```powershell
-  npm install react-redux
-  ```
-- Install Jest DOM by running below command:-
-  ```powershell
-  npm i @testing-library/jest-dom
-  ```
-- Install Cypress by running below command:-
-  ```powershell
-  npm install cypress --save-dev
-  ```
-- Install BackstopJS by running below command:-
-  ```powershell
-  npm install -g backstopjs
-  ```
-
-### Important constants needed to get movie details
-
-You would have to login and register at [TMDB API](https://www.themoviedb.org/) to get your own API Key.
-
-- API_KEY = `https://api.themoviedb.org/3/movie/popular?api_key=your-own-key`
-- API_IMG = `https://image.tmdb.org/t/p/w500/`
-- MOVIE_URL = `https://api.themoviedb.org/3/movie/${movie-id}?api_key=your-own-key&language=en-US`
-
 ---
 
-I appreciate your effort of checking-out this repository. Thanks!
+Thankyou for checking-out my repository!😊
 
 ---

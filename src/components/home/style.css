@@ -1,0 +1,111 @@
+.home {
+  background: var(--blue-color);
+}
+
+.trending,
+.topRated,
+.explore {
+  padding: 1em 1.5em;
+  /* position: relative; */
+}
+
+.trending .heading,
+.topRated .heading,
+.explore .heading {
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topRated .heading,
+.explore .heading {
+  justify-content: left;
+}
+
+.topRated .more,
+.explore .more {
+  margin-left: 2%;
+  height: 100%;
+  padding: 1%;
+  border: 1px solid #318085;
+  filter: drop-shadow(1px -1px 3px rgba(0, 0, 0, 0.5));
+  border-radius: 12.5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: var(--second-bgColor);
+}
+
+.trending .heading .title,
+.topRated .heading .title,
+.explore .heading .title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.trending .heading .media-types {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-right: 0;
+  gap: 1em;
+}
+
+.trending .heading .media-types span {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 34px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+}
+
+.trending .heading .media-types span.active {
+  color: #318085;
+}
+
+.trending .heading .media-types span:hover {
+  color: #318085;
+  transition: color 0.3s ease-in;
+}
+
+.carousel-items::-webkit-scrollbar,
+.top-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen {
+  @media (min-width: 768px) {
+    .trending .heading .media-types span {
+      font-size: 20px;
+    }
+    .trending .heading .title,
+    .topRated .heading .title,
+    .explore .heading .title {
+      font-size: 24px;
+    }
+    .trending .heading,
+    .topRated .heading,
+    .explore .heading {
+      margin-bottom: 1%;
+    }
+
+    .topRated .more,
+    .explore .heading .more {
+      font-size: 16px;
+      padding: 0.5%;
+    }
+  }
+}
