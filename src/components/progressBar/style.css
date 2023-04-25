@@ -1,0 +1,28 @@
+.progress-bar {
+  position: relative;
+}
+
+.progress-bar-background {
+  fill: none;
+  stroke: var(--progress-bar-emptyColor);
+  stroke-width: 10;
+  opacity: 0.5;
+}
+
+.progress-bar-indicator {
+  fill: none;
+  stroke: var(--progress-bar-fillColor);
+  stroke-width: 10;
+  stroke-dasharray: 0, 320;
+  stroke-dashoffset: 80;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+
+.progress-bar-text {
+  fill: var(--text-color);
+  font-size: 30px;
+  font-weight: bold;
+  text-anchor: middle;
+}
