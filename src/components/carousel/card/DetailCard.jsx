@@ -38,7 +38,9 @@ const DetailCard = ({ data }) => {
           if (index <= 1) {
             return (
               <div className="genre" key={genre.id}>
-                {genre.name}
+                {genre.name.length > 10
+                  ? `${genre.name.slice(0, 10)}...`
+                  : genre.name}
               </div>
             );
           } else if (index > 1 && index === dataGenres?.length - 1) {

@@ -87,6 +87,26 @@
 }
 
 @media screen {
+  @media (max-width: 767.98px) {
+    .trending,
+    .topRated,
+    .explore {
+      padding: 1em 1em;
+    }
+
+    .trending .heading,
+    .topRated .heading,
+    .explore .heading {
+      margin-bottom: 1.5%;
+    }
+
+    .trending .heading .title,
+    .topRated .heading .title,
+    .explore .heading .title {
+      font-size: 18px;
+    }
+  }
+
   @media (min-width: 768px) {
     .trending .heading .media-types span {
       font-size: 20px;
