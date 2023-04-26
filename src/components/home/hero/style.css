@@ -1,10 +1,6 @@
 .heroCarousel {
-  /* height: 700px;
-  width: 100%; */
   overflow: hidden;
-  /* padding: 20px; */
   position: relative;
-  /* border: 5px solid blue; */
 }
 
 .heroCarousel img {
@@ -15,9 +11,6 @@
   position: absolute;
   top: 0;
   opacity: 0.8;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 .heroCarousel .carousel-items {
@@ -30,24 +23,18 @@
 }
 
 .heroCarousel .carousel-items .carousel-card {
-  /* display: flex;
-  width: 200px;
-  height: 100%; */
   border-radius: 25px;
   overflow: hidden;
   position: relative;
-  min-width: 55rem;
-  /* max-width: 300px; */
-
-  height: 400px;
-  /* background-color: black; */
+  min-width: calc(100% - 8rem);
+  height: 26em;
   margin: 10px;
   color: white;
   filter: drop-shadow(5px 4px 7px rgba(0, 0, 0, 0.5));
 }
 
 .heroCarousel .carousel-items .carousel-card:first-child {
-  margin-left: 4rem;
+  margin-left: 3rem;
 }
 
 .heroCarousel .carousel-items .carousel-card:not(.active) {
@@ -81,14 +68,9 @@
 }
 
 .heroCarousel .carousel-items .carousel-card .carousel-text .carousel-title {
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 30px;
+  line-height: 32px;
   margin-bottom: 2%;
-}
-
-.heroCarousel .carousel-items .carousel-card .carousel-text .carousel-overview {
-  font-size: 18px;
-  opacity: 0.7;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -96,10 +78,16 @@
   overflow: hidden;
 }
 
-/* .carousel-items,
-.dots-container {
-  border: 5px solid red;
-} */
+.heroCarousel .carousel-items .carousel-card .carousel-text .carousel-overview {
+  font-size: 20px;
+  line-height: 22px;
+  opacity: 0.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 
 .dots-container {
   display: flex;
@@ -145,7 +133,7 @@
 
 .heroCarousel .left-arrow span,
 .heroCarousel .right-arrow span {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .heroCarousel::after {
@@ -163,40 +151,36 @@
 @media screen and (max-width: 399.98px) {
   .heroCarousel .left-arrow,
   .heroCarousel .right-arrow {
-    /* top: 8%; */
     width: 1.2rem;
   }
 
   .heroCarousel .left-arrow span,
   .heroCarousel .right-arrow span {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .heroCarousel .carousel-items {
     padding: 10px 0;
   }
   .heroCarousel .carousel-items .carousel-card {
-    min-width: 15rem;
-    height: 8rem;
+    min-width: calc(100% - 2rem);
+    height: 11rem;
   }
   .heroCarousel .carousel-items .carousel-card:first-child {
-    margin-left: 2.5rem;
+    margin-left: 1rem;
   }
-  /* .heroCarousel .carousel-items .carousel-card .carousel-text {
-    bottom: 35%;
-  } */
   .heroCarousel .carousel-items .carousel-card .carousel-text .carousel-title {
-    font-size: 14px;
-    line-height: 5px;
-    margin-bottom: 4%;
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 2%;
   }
   .heroCarousel
     .carousel-items
     .carousel-card
     .carousel-text
     .carousel-overview {
-    font-size: 10px;
-    line-height: 15px;
+    font-size: 12px;
+    line-height: 14px;
   }
   .dot {
     height: 10px;
@@ -214,29 +198,28 @@
 @media screen and (min-width: 400px) and (max-width: 499.98px) {
   .heroCarousel .left-arrow,
   .heroCarousel .right-arrow {
-    /* top: 8%; */
     width: 1.2rem;
   }
 
   .heroCarousel .left-arrow span,
   .heroCarousel .right-arrow span {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   .heroCarousel .carousel-items {
     padding: 10px 0;
   }
   .heroCarousel .carousel-items .carousel-card {
-    min-width: 18rem;
-    height: 10rem;
+    min-width: calc(100% - 2rem);
+    height: 12rem;
   }
-  /* .heroCarousel .carousel-items .carousel-card .carousel-text {
-    bottom: 35%;
-  } */
+  .heroCarousel .carousel-items .carousel-card:first-child {
+    margin-left: 1rem;
+  }
   .heroCarousel .carousel-items .carousel-card .carousel-text .carousel-title {
-    font-size: 18px;
-    line-height: 5px;
-    margin-bottom: 4%;
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 2%;
   }
   .heroCarousel
     .carousel-items
@@ -244,7 +227,7 @@
     .carousel-text
     .carousel-overview {
     font-size: 12px;
-    line-height: 15px;
+    line-height: 14px;
   }
   .dot {
     height: 10px;
@@ -262,31 +245,27 @@
 @media screen and (min-width: 500px) and (max-width: 575.98px) {
   .heroCarousel .left-arrow,
   .heroCarousel .right-arrow {
-    /* top: 2%; */
-    width: 1.2rem;
+    width: 1.7rem;
   }
 
   .heroCarousel .left-arrow span,
   .heroCarousel .right-arrow span {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .heroCarousel .carousel-items {
     padding: 10px 0;
   }
   .heroCarousel .carousel-items .carousel-card {
-    min-width: 22rem;
-    height: 12rem;
+    min-width: calc(100% - 5rem);
+    height: 14rem;
   }
   .heroCarousel .carousel-items .carousel-card:first-child {
-    margin-left: 4rem;
+    margin-left: 2rem;
   }
-  /* .heroCarousel .carousel-items .carousel-card .carousel-text {
-    bottom: 35%;
-  } */
   .heroCarousel .carousel-items .carousel-card .carousel-text .carousel-title {
     font-size: 18px;
-    line-height: 5px;
-    margin-bottom: 4%;
+    line-height: 20px;
+    margin-bottom: 2%;
   }
   .heroCarousel
     .carousel-items
@@ -294,7 +273,7 @@
     .carousel-text
     .carousel-overview {
     font-size: 12px;
-    line-height: 15px;
+    line-height: 14px;
   }
   .dot {
     height: 12px;
@@ -312,39 +291,35 @@
 @media screen and (min-width: 576px) and (max-width: 767.98px) {
   .heroCarousel .left-arrow,
   .heroCarousel .right-arrow {
-    /* top: 1%; */
-    width: 1.2rem;
+    width: 2rem;
   }
 
   .heroCarousel .left-arrow span,
   .heroCarousel .right-arrow span {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
   .heroCarousel .carousel-items {
     padding: 10px 0;
   }
   .heroCarousel .carousel-items .carousel-card {
-    min-width: 30rem;
-    height: 18rem;
+    min-width: calc(100% - 5rem);
+    height: 16rem;
   }
   .heroCarousel .carousel-items .carousel-card:first-child {
-    margin-left: 3rem;
+    margin-left: 2rem;
   }
-  /* .heroCarousel .carousel-items .carousel-card .carousel-text {
-    bottom: 25%;
-  } */
   .heroCarousel .carousel-items .carousel-card .carousel-text .carousel-title {
-    font-size: 18px;
-    line-height: 5px;
-    margin-bottom: 4%;
+    font-size: 20px;
+    line-height: 22px;
+    margin-bottom: 3%;
   }
   .heroCarousel
     .carousel-items
     .carousel-card
     .carousel-text
     .carousel-overview {
-    font-size: 12px;
-    line-height: 15px;
+    font-size: 14px;
+    line-height: 16px;
   }
   .dots-container {
     bottom: 0.5rem;
@@ -358,9 +333,7 @@
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
   .heroCarousel .left-arrow,
   .heroCarousel .right-arrow {
-    /* top: 1%; */
     width: 2rem;
-    /* height: 92%; */
   }
 
   .heroCarousel .left-arrow span,
@@ -371,18 +344,15 @@
     padding: 24px 20px;
   }
   .heroCarousel .carousel-items .carousel-card {
-    min-width: 40rem;
+    min-width: calc(100% - 6rem);
     height: 20rem;
   }
   .heroCarousel .carousel-items .carousel-card:first-child {
     margin-left: 2rem;
   }
-  /* .heroCarousel .carousel-items .carousel-card .carousel-text {
-    bottom: 30%;
-    width: 90%;
-  } */
   .heroCarousel .carousel-items .carousel-card .carousel-text .carousel-title {
-    font-size: 32px;
+    font-size: 26px;
+    line-height: 28px;
   }
   .heroCarousel
     .carousel-items
@@ -400,13 +370,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .heroCarousel .left-arrow,
-  .heroCarousel .right-arrow {
-    /* top: 0%; */
-    width: 2rem;
-    /* height: 92%; */
-  }
-
   .heroCarousel .left-arrow span,
   .heroCarousel .right-arrow span {
     font-size: 2rem;
@@ -415,27 +378,19 @@
     padding: 32px 26px;
   }
   .heroCarousel .carousel-items .carousel-card {
-    /* min-width: 65rem; */
-    min-width: calc(100% - 10em);
-    height: 25rem;
+    height: 30rem;
   }
-  .heroCarousel .carousel-items .carousel-card:first-child {
-    margin-left: 3rem;
-  }
-  /* .heroCarousel .carousel-items .carousel-card .carousel-text {
-    bottom: 30%;
-    width: 90%;
-  } */
   .heroCarousel .carousel-items .carousel-card .carousel-text .carousel-title {
-    font-size: 36px;
+    font-size: 34px;
+    line-height: 36px;
   }
   .heroCarousel
     .carousel-items
     .carousel-card
     .carousel-text
     .carousel-overview {
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 24px;
+    line-height: 26px;
   }
 
   .dot {
@@ -445,13 +400,6 @@
 }
 
 @media screen and (min-width: 1400px) {
-  .heroCarousel .left-arrow,
-  .heroCarousel .right-arrow {
-    /* top: 0%; */
-    width: 2rem;
-    /* height: 92%; */
-  }
-
   .heroCarousel .left-arrow span,
   .heroCarousel .right-arrow span {
     font-size: 2rem;
@@ -460,39 +408,15 @@
     padding: 30px 26px;
   }
   .heroCarousel .carousel-items .carousel-card {
-    /* min-width: 75rem; */
     height: 35rem;
   }
-  /* .heroCarousel .carousel-items .carousel-card .carousel-text {
-    bottom: 30%;
-    width: 90%;
-  } */
-  .heroCarousel .carousel-items .carousel-card .carousel-text .carousel-title {
-    font-size: 42px;
-  }
-  .heroCarousel
-    .carousel-items
-    .carousel-card
-    .carousel-text
-    .carousel-overview {
-    font-size: 20px;
-    line-height: 20px;
-  }
-
   .dot {
     height: 16px;
     width: 16px;
   }
 }
 
-@media screen and (min-width: 2560px) {
-  .heroCarousel .left-arrow,
-  .heroCarousel .right-arrow {
-    /* top: 0%; */
-    width: 2rem;
-    /* height: 92%; */
-  }
-
+@media screen and (min-width: 2300px) {
   .heroCarousel .left-arrow span,
   .heroCarousel .right-arrow span {
     font-size: 2rem;
@@ -501,23 +425,20 @@
     padding: 10px 0;
   }
   .heroCarousel .carousel-items .carousel-card {
-    /* min-width: 75rem; */
     height: 40rem;
   }
-  /* .heroCarousel .carousel-items .carousel-card .carousel-text {
-    bottom: 30%;
-    width: 90%;
-  } */
   .heroCarousel .carousel-items .carousel-card .carousel-text .carousel-title {
-    font-size: 42px;
+    font-size: 44px;
+    line-height: 46px;
+    margin-bottom: 1%;
   }
   .heroCarousel
     .carousel-items
     .carousel-card
     .carousel-text
     .carousel-overview {
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 32px;
+    line-height: 34px;
   }
 
   .dot {

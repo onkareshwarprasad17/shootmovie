@@ -39,6 +39,12 @@
 }
 
 @media screen {
+  @media (max-width: 767.98px) {
+    .upcoming {
+      padding: 1em 1em;
+    }
+  }
+
   @media (min-width: 768px) {
     .upcoming {
       display: flex;
