@@ -46,7 +46,6 @@ const App = () => {
     // dispatch(getGenres([...commonGenres]));
 
     const allGenres = [];
-    console.log(data);
     data?.map((genreList) =>
       genreList?.genres.map(
         (genre) =>

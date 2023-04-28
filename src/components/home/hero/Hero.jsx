@@ -31,7 +31,7 @@ const Hero = () => {
       container.scrollLeft = width * movies?.length;
     } else {
       nextSlide -= 1;
-      container.scrollLeft = container.scrollLeft - width + 10;
+      container.scrollLeft = container.scrollLeft - width - 30;
     }
 
     setCurrentSlide(nextSlide);
@@ -47,7 +47,7 @@ const Hero = () => {
       container.scrollLeft = 0;
     } else {
       nextSlide += 1;
-      container.scrollLeft = container.scrollLeft + width + 20;
+      container.scrollLeft = container.scrollLeft + width + 30;
     }
     setCurrentSlide(nextSlide);
   };
@@ -58,12 +58,14 @@ const Hero = () => {
         {movies?.map(
           (movie, index) =>
             index === currentSlide && (
-              <img
-                src={url.backdrop + movie?.backdrop_path}
-                alt={`movie-${movie?.id}`}
-                key={index}
-                data-testid={'backdrop-image'}
-              />
+              <div className="heroBackdrop">
+                <img
+                  src={url.backdrop + movie?.backdrop_path}
+                  alt={`movie-${movie?.id}`}
+                  key={index}
+                  data-testid={'backdrop-image'}
+                />
+              </div>
             )
         )}
         <div className="left-arrow">
