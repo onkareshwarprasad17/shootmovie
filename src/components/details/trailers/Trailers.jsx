@@ -1,29 +1,29 @@
-import React, { memo, useEffect, useState } from 'react';
-import TopCarousel from '../../carousel/topCarousel/TopCarousel';
-import { useParams } from 'react-router-dom';
-import useFetch from '../../../redux/hooks/useFetch';
+import React, { useContext } from "react";
+import { VideoContext } from "../../../context/VideoContext";
+import TopCarousel from "../../carousel/topCarousel/TopCarousel";
 
-const Trailers = ({ mediaType, id }) => {
-  const { data } = useFetch(`/${mediaType}/${id}/videos`);
-
-  const videos = data?.results?.filter((item) =>
-    item?.name?.match(/trailer/gi)
-  );
+const Trailers = () => {
+  const { videos, videoIsLoading } = useContext(VideoContext);
 
   return (
     <>
-      {videos && videos.length ? (
+      {!!(videoIsLoading || videos?.length) && (
         <div className="trailers">
-          <div className="heading" role="heading">
-            <div className="title">Official Videos</div>
-          </div>
-          <TopCarousel data={videos} type="trailers" />
+          {videos?.length && (
+            <div className="heading" role="heading">
+              <div className="title">Official Videos</div>
+            </div>
+          )}
+
+          <TopCarousel
+            data={videos}
+            type="trailers"
+            isLoading={videoIsLoading}
+          />
         </div>
-      ) : (
-        ''
       )}
     </>
   );
 };
 
-export default memo(Trailers);
+export default Trailers;

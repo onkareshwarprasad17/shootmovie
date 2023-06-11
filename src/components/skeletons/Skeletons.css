@@ -1,0 +1,261 @@
+/* Basic styles */
+.skeleton {
+  opacity: 0.7;
+  /* animation: card-loading 2s linear infinite alternate; */
+  background: hsl(202, 40%, 24%);
+  border-radius: 12px;
+}
+
+@keyframes card-loading {
+  0% {
+    background-color: hsl(199, 61%, 22%);
+  }
+  100% {
+    background-color: hsl(204, 30%, 52%);
+  }
+}
+
+@keyframes upcomingcard-loading {
+  0% {
+    background-color: hsl(199, 39%, 24%);
+  }
+  100% {
+    background-color: hsl(205, 43%, 37%);
+  }
+}
+
+.skeleton.text {
+  width: 100%;
+  height: 10px;
+  margin-bottom: 0.2em;
+}
+
+.skeleton.text:last-child {
+  width: 80%;
+}
+
+.skeleton.title {
+  width: 50%;
+  height: 14px;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton.genre {
+  height: 1rem;
+  width: 4rem;
+  margin-right: 0.5em;
+  border-radius: 20px;
+  background-color: hsl(200, 20%, 70%);
+}
+
+.skeleton.genre:last-child {
+  margin-right: 0;
+}
+
+.skeleton.avatar {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  animation: card-loading 2s linear infinite alternate;
+}
+
+.skeleton.avatar-name {
+  width: 100%;
+  height: 12px;
+  animation: card-loading 2s linear infinite alternate;
+  margin-top: 0.5em;
+}
+
+.skeleton.play-button {
+  border-top: 25px solid transparent;
+  border-left: 50px solid hsl(202, 40%, 24%);
+  border-bottom: 25px solid transparent;
+  background: none;
+  border-radius: 0 !important;
+}
+
+/* .skeleton.progress-bar {
+  stroke-width: 10;
+  fill: hsl(200, 20%, 70%);
+  stroke-dasharray: 0, 320;
+  stroke-dashoffset: 80;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+} */
+
+/* detail card */
+.skeleton-detail-card,
+.skeleton-trailer-card {
+  opacity: 0.7;
+  animation: card-loading 2s linear infinite alternate;
+  width: 90%;
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  height: 10em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.skeleton-detail-card .genre-list {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 1em;
+}
+
+.skeleton-detail-card .text-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: left;
+  padding: 1em;
+}
+
+/* upcoming card */
+.skeleton-upcoming-card {
+  width: 90%;
+  height: 10em;
+  animation: upcomingcard-loading 2s infinite alternate;
+  opacity: 0.7;
+  flex-shrink: 0;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-right: 0.8em;
+  position: relative;
+}
+
+.skeleton-upcoming-card .text {
+  position: absolute;
+  left: 5%;
+  bottom: 10%;
+}
+
+/* Cast Card */
+.skeleton-cast-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  flex-shrink: 0;
+  height: 6em;
+  width: 6em;
+  margin-right: 4em;
+}
+
+/* Trailer card */
+.skeleton-trailer-card {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Poster Card */
+.skeleton-poster {
+  height: 30em;
+  width: 18em;
+  animation: card-loading 2s linear infinite alternate;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+}
+
+/* Hero Banner Carousel Card */
+.skeleton-hero-card-image {
+  animation: card-loading 2s linear infinite alternate;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen {
+  @media (min-width: 425px) and (max-width: 767.98px) {
+    .top-carousel .skeleton-detail-card,
+    .top-carousel .skeleton-trailer-card {
+      width: 16em;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .top-carousel .skeleton-detail-card,
+    .top-carousel .skeleton-trailer-card {
+      width: calc(50% - 20px);
+      height: 12em;
+    }
+    .skeleton.genre {
+      width: 6rem;
+    }
+    .skeleton.title {
+      height: 20px;
+    }
+  }
+  @media (min-width: 992px) {
+    .top-carousel .skeleton-detail-card,
+    .top-carousel .skeleton-trailer-card {
+      width: 32.3%;
+      height: 10em;
+    }
+    .skeleton-cast-card {
+      height: 7em;
+      width: 7em;
+    }
+  }
+  @media (min-width: 1024px) {
+    .top-carousel .skeleton-detail-card,
+    .top-carousel .skeleton-trailer-card {
+      width: calc(30% + 19px) !important;
+    }
+    .skeleton-cast-card {
+      height: 8em;
+      width: 8em;
+    }
+    .skeleton-detail-banner.left {
+      width: 30em !important;
+      margin-bottom: auto;
+      margin-top: 20%;
+    }
+  }
+  @media (min-width: 1200px) {
+    .top-carousel .skeleton-detail-card,
+    .top-carousel .skeleton-trailer-card {
+      height: 14rem;
+    }
+    .skeleton-cast-card {
+      height: 9em;
+      width: 9em;
+    }
+  }
+}
+
+@media screen {
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .skeleton-upcoming-card {
+      height: 18em;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .skeleton-upcoming-card {
+      height: 14em;
+      width: 30em;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .skeleton-upcoming-card {
+      height: 20em;
+      width: 30em;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .skeleton-upcoming-card {
+      width: 50em;
+    }
+  }
+}

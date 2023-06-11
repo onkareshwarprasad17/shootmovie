@@ -1,15 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import useFetch from '../../../redux/hooks/useFetch';
-import ProgressBar from '../../progressBar/ProgressBar';
+import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
-import './style.css';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import useFetch from "../../../redux/hooks/useFetch";
+
+import ProgressBar from "../../progressBar/ProgressBar";
+import SkeletonHeroBannerCard from "../../skeletons/SkeletonHeroBannerCard";
+
+import "./style.css";
 
 const Hero = () => {
   const { url } = useSelector((state) => state.app);
-  const { data } = useFetch('/movie/popular');
+  const { data, loading } = useFetch("/movie/popular");
 
   const carouselContainer = useRef(null);
   const [movies, setMovies] = useState(null);
@@ -17,7 +20,7 @@ const Hero = () => {
 
   useEffect(() => {
     if (data?.results) {
-      setMovies(data?.results?.slice(0, 5));
+      setMovies(data.results.slice(0, 5));
     }
   }, [data]);
 
@@ -58,61 +61,73 @@ const Hero = () => {
         {movies?.map(
           (movie, index) =>
             index === currentSlide && (
-              <img
-                src={url.backdrop + movie?.backdrop_path}
-                alt={`movie-${movie?.id}`}
-                key={index}
-                data-testid={'backdrop-image'}
-              />
+              <div className="heroBackdrop">
+                <img
+                  src={url.backdrop + movie?.backdrop_path}
+                  alt={`movie-${movie?.id}`}
+                  key={index}
+                  data-testid={"backdrop-image"}
+                />
+              </div>
             )
         )}
         <div className="left-arrow">
           <span>
-            <LeftOutlined onClick={showPrevSlide} data-testid={'left-arrow'} />
+            <LeftOutlined onClick={showPrevSlide} data-testid={"left-arrow"} />
           </span>
         </div>
         <div className="right-arrow">
           <span>
             <RightOutlined
               onClick={showNextSlide}
-              data-testid={'right-arrow'}
+              data-testid={"right-arrow"}
             />
           </span>
         </div>
 
         <div className="carousel-items" ref={carouselContainer}>
-          {movies?.map((movie, index) => (
-            <Link
-              to={`/movie/${movie.id}`}
-              className={`carousel-card${
-                index === currentSlide ? ' active' : ''
-              }`}
-              key={index}
-              data-testid={'heroCarousel-card'}
-            >
-              <img
-                src={url.backdrop + movie?.backdrop_path}
-                alt={`movie-${movie?.id}`}
-                data-testid={'card-image'}
-              />
-              <div className="progress-bar-svg">
-                <ProgressBar
-                  rating={movie?.vote_average}
-                  currentSlide={movie}
-                />
-              </div>
-              <div className="carousel-text">
-                <div className="carousel-title">{movie?.original_title}</div>
-                <div className="carousel-overview">{movie?.overview}</div>
-              </div>
-            </Link>
-          ))}
+          {!loading && (
+            <>
+              {movies?.map((movie, index) => (
+                <Link
+                  to={`/movie/${movie.id}`}
+                  className={`carousel-card${
+                    index === currentSlide ? " active" : ""
+                  }`}
+                  key={index}
+                  data-testid={"heroCarousel-card"}
+                >
+                  <img
+                    src={
+                      url.backdrop + movie?.backdrop_path + "?size=thumbnail"
+                    }
+                    alt={`movie-${movie?.id}`}
+                    data-testid={"card-image"}
+                  />
+
+                  <div className="progress-bar-svg">
+                    <ProgressBar
+                      rating={movie?.vote_average}
+                      currentSlide={movie}
+                    />
+                  </div>
+                  <div className="carousel-text">
+                    <div className="carousel-title">
+                      {movie?.original_title}
+                    </div>
+                    <div className="carousel-overview">{movie?.overview}</div>
+                  </div>
+                </Link>
+              ))}
+            </>
+          )}
+          {loading && <SkeletonHeroBannerCard />}
         </div>
 
         <div className="dots-container">
           {movies?.map((_, index) => (
             <div
-              className={`dot${index === currentSlide ? ' active' : ''}`}
+              className={`dot${index === currentSlide ? " active" : ""}`}
               key={`dot-${index}`}
               data-testid={`dot-${index}`}
             ></div>
@@ -123,4 +138,4 @@ const Hero = () => {
   );
 };
 
-export default React.memo(Hero);
+export default Hero;

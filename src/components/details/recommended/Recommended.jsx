@@ -1,13 +1,15 @@
-import React, { memo, useEffect, useState } from 'react';
-import useFetch from '../../../redux/hooks/useFetch';
-import TopCarousel from '../../carousel/topCarousel/TopCarousel';
+import React, { useContext } from "react";
+import useFetch from "../../../redux/hooks/useFetch";
+import { VideoContext } from "../../../context/VideoContext";
+import TopCarousel from "../../carousel/topCarousel/TopCarousel";
 
-const Recommended = ({ mediaType, id }) => {
-  const { data } = useFetch(`/${mediaType}/${id}/recommendations`);
+const Recommended = () => {
+  const { mediaType, id } = useContext(VideoContext);
+  const { data, loading } = useFetch(`/${mediaType}/${id}/recommendations`);
 
   const recommendedMedia = data?.results
     ?.map((item) => {
-      if (!item.hasOwnProperty('media_type')) {
+      if (!item.hasOwnProperty("media_type")) {
         return {
           ...item,
           media_type: mediaType,
@@ -20,25 +22,29 @@ const Recommended = ({ mediaType, id }) => {
 
   return (
     <>
-      {recommendedMedia && recommendedMedia.length ? (
+      {!!(loading || recommendedMedia?.length) && (
         <div className="recommendations">
-          <div className="heading" role="heading">
-            <div className="title">
-              Recommended{' '}
-              {mediaType === 'tv'
-                ? mediaType.toUpperCase() + ' Show'
-                : mediaType.slice(0, 1).toUpperCase() +
-                  mediaType.slice(1).toLowerCase()}
-              {data?.results?.length >= 2 && 's'}
+          {recommendedMedia?.length && (
+            <div className="heading" role="heading">
+              <div className="title">
+                Recommended{" "}
+                {mediaType === "tv"
+                  ? mediaType.toUpperCase() + " Show"
+                  : mediaType.slice(0, 1).toUpperCase() +
+                    mediaType.slice(1).toLowerCase()}
+                {data?.results?.length >= 2 && "s"}
+              </div>
             </div>
-          </div>
-          <TopCarousel data={recommendedMedia} type="detail" />
+          )}
+          <TopCarousel
+            data={recommendedMedia}
+            type="detail"
+            isLoading={loading}
+          />
         </div>
-      ) : (
-        ''
       )}
     </>
   );
 };
 
-export default memo(Recommended);
+export default Recommended;

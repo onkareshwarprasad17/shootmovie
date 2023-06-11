@@ -1,10 +1,11 @@
-import React, { memo, useEffect, useState } from 'react';
-import Hero from './hero/Hero';
-import Trending from './trending/Trending';
-import './style.css';
-import Upcoming from './upcoming/Upcoming';
-import TopRatedMovies from './topRated/TopRatedMovies';
-import Explore from './explore/Explore';
+import React from "react";
+import Hero from "./hero/Hero";
+import Trending from "./trending/Trending";
+import Upcoming from "./upcoming/Upcoming";
+import TopRatedMovies from "./topRated/TopRatedMovies";
+import Explore from "./explore/Explore";
+
+import "./style.css";
 
 const Home = () => {
   return (
@@ -14,10 +15,10 @@ const Home = () => {
         <Trending />
         <Upcoming />
         <TopRatedMovies />
-        <Explore />
+        {/* <Explore /> */}
       </section>
     </>
   );
 };
 
-export default memo(Home);
+export default Home;

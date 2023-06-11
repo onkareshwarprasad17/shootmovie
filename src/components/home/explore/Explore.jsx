@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import TopCarousel from '../../carousel/topCarousel/TopCarousel';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { useSelector } from "react-redux";
+import TopCarousel from "../../carousel/topCarousel/TopCarousel";
 
 const Explore = () => {
   const { genres } = useSelector((state) => state.app);
@@ -13,7 +13,7 @@ const Explore = () => {
             <div className="title">Explore by Genres</div>
             <div className="more">More</div>
           </div>
-          <TopCarousel data={genres} type={'genre'} />
+          <TopCarousel data={genres} type={"genre"} />
         </div>
       )}
     </>

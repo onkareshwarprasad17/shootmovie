@@ -21,7 +21,7 @@
 }
 
 .details-banner .opacity-layer {
-  content: '';
+  content: "";
   height: 200px;
   width: 100%;
   background: linear-gradient(
@@ -99,7 +99,7 @@
   border-radius: 12px;
 }
 
-.details-banner .content-wrapper .content .left .trailer {
+/* .details-banner .content-wrapper .content .left .trailer {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -108,13 +108,13 @@
   line-height: 30px;
   margin-bottom: 12px;
   cursor: pointer;
-}
+} */
 
-.details-banner .content-wrapper .content .left .trailer .play-button {
+/* .details-banner .content-wrapper .content .left .trailer .play-button {
   content: url('../../../assets/PlayButton.svg');
   height: 60px;
   width: 60px;
-}
+} */
 
 .details-banner .content-wrapper .content .left .show-more {
   color: var(--second-bgColor);
@@ -212,14 +212,14 @@
       font-size: 1rem;
       padding: 5px 10px;
     }
-    .details-banner .content-wrapper .content .left .trailer {
+    /* .details-banner .content-wrapper .content .left .trailer {
       font-size: 1.5rem;
-    }
+    } */
 
-    .details-banner .content-wrapper .content .left .trailer .play-button {
+    /* .details-banner .content-wrapper .content .left .trailer .play-button {
       width: 80px;
       height: 80px;
-    }
+    } */
 
     .details-banner .content-wrapper .content .left .show-more {
       display: flex;

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import './style.css';
+import React, { useEffect } from "react";
+import "./style.css";
 
 const VideoModal = ({ mediaDetails, showModal, show }) => {
   useEffect(() => {
@@ -7,10 +7,10 @@ const VideoModal = ({ mediaDetails, showModal, show }) => {
       showModal(false);
     }
 
-    const modalWindow = document.querySelector('.modal');
+    const modalWindow = document.querySelector(".modal");
 
-    modalWindow.addEventListener('click', handleModal);
-    return () => removeEventListener('click', handleModal);
+    modalWindow.addEventListener("click", handleModal);
+    return () => removeEventListener("click", handleModal);
   }, []);
 
   return (

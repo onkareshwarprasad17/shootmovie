@@ -1,6 +1,6 @@
-import React from 'react';
-import './style.css';
-import UpcomingCarousel from '../../carousel/upcomingCarousel/UpcomingCarousel';
+import React from "react";
+import UpcomingCarousel from "../../carousel/upcomingCarousel/UpcomingCarousel";
+import "./style.css";
 
 const Upcoming = () => {
   return (
@@ -12,7 +12,7 @@ const Upcoming = () => {
         <div className="overview">Watch trailer of the upcoming movies!</div>
       </div>
       <UpcomingCarousel />
-      <div className={'background-ellipse'}></div>
+      <div className={"background-ellipse"}></div>
     </div>
   );
 };
