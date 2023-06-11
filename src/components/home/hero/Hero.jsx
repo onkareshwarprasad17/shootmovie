@@ -34,7 +34,7 @@ const Hero = () => {
       container.scrollLeft = width * movies?.length;
     } else {
       nextSlide -= 1;
-      container.scrollLeft = container.scrollLeft - width + 10;
+      container.scrollLeft = container.scrollLeft - width - 30;
     }
 
     setCurrentSlide(nextSlide);
@@ -50,7 +50,7 @@ const Hero = () => {
       container.scrollLeft = 0;
     } else {
       nextSlide += 1;
-      container.scrollLeft = container.scrollLeft + width + 20;
+      container.scrollLeft = container.scrollLeft + width + 30;
     }
     setCurrentSlide(nextSlide);
   };
