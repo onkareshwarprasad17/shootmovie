@@ -1,7 +1,8 @@
-import React from 'react';
-import './style.css';
-import { useSelector } from 'react-redux';
-import CastFallback from '../../../icons/castProfile/CastFallback';
+import React from "react";
+import { useSelector } from "react-redux";
+import CastFallback from "../../../icons/castProfile/CastFallback";
+
+import "./style.css";
 
 const CastCard = ({ data: castDetails }) => {
   const { url } = useSelector((state) => state.app);
@@ -22,7 +23,7 @@ const CastCard = ({ data: castDetails }) => {
       </div>
       <div className="cast-details">
         <div className="character-name">
-          {castDetails?.character?.split('/')[0].trim()}
+          {castDetails?.character?.split("/")[0].trim()}
         </div>
         <div className="original-name">{castDetails?.original_name}</div>
       </div>

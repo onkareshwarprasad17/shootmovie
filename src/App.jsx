@@ -1,13 +1,16 @@
-import React, { lazy, Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-const Home = lazy(() => import('./components/home/Home'));
-import { getGenres, getImageUrl } from './redux/appSlice';
-import { fetchFromApi } from './utils/api';
+import React, { lazy, Suspense, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
-import Details from './components/details/Details';
+const Home = lazy(() => import("./components/home/Home"));
+const Details = lazy(() => import("./components/details/Details"));
+
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import ActivityLoader from "./ActivityLoader";
+
+import { getGenres, getImageUrl } from "./redux/appSlice";
+import { fetchFromApi } from "./utils/api";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,11 +22,11 @@ const App = () => {
 
   const getImageConfig = async () => {
     try {
-      const res = await fetchFromApi('/configuration');
+      const res = await fetchFromApi("/configuration");
       const url = {
-        backdrop: res?.images?.secure_base_url + 'original',
-        poster: res?.images?.secure_base_url + 'original',
-        profile: res?.images?.secure_base_url + 'original',
+        backdrop: res?.images?.secure_base_url + "original",
+        poster: res?.images?.secure_base_url + "w500",
+        profile: res?.images?.secure_base_url + "w185",
       };
       dispatch(getImageUrl(url));
     } catch (error) {
@@ -33,7 +36,7 @@ const App = () => {
 
   const getGenresList = async () => {
     let promise = [];
-    const genresMediaType = ['tv', 'movie'];
+    const genresMediaType = ["tv", "movie"];
 
     genresMediaType.forEach((type) => {
       promise.push(fetchFromApi(`/genre/${type}/list`));
@@ -59,25 +62,14 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense fallback="loading">
-              <Home />
-            </Suspense>
-          }
-        />
-        <Route
-          exact
-          path="/:mediaType/:id"
-          element={
-            <Suspense fallback="loading">
-              <Details />
-            </Suspense>
-          }
-        />
-      </Routes>
+      <div className="content-container">
+        <Suspense fallback={<ActivityLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route exact path="/:mediaType/:id" element={<Details />} />
+          </Routes>
+        </Suspense>
+      </div>
       <Footer />
     </BrowserRouter>
   );

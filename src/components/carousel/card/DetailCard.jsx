@@ -1,27 +1,27 @@
-import React, { memo, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import FallBackBackdrop from '../../../assets/no-image.png';
+import React, { memo, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import FallBackBackdrop from "../../../assets/no-image.png";
 
 const DetailCard = ({ data }) => {
   const { url, genres } = useSelector((state) => state.app);
   const [dataGenres, setDataGenres] = useState(null);
 
   useEffect(() => {
-    if (genres.length > 0) {
+    if (genres?.length) {
       const genreData = data?.genre_ids?.map((id) =>
-        genres?.find((genre) => genre.id === id)
+        genres.find((genre) => genre.id === id)
       );
       setDataGenres(genreData);
     }
-  }, [genres]);
+  }, [genres, data]);
 
   return (
     <Link
       className="sectionCarousel-card"
       key={data?.id}
       to={`/${data?.media_type}/${data?.id}`}
-      data-testid={'sectionCarousel-card'}
+      data-testid={"sectionCarousel-card"}
     >
       <span className="card-image">
         {data?.backdrop_path ? (
@@ -60,4 +60,4 @@ const DetailCard = ({ data }) => {
   );
 };
 
-export default memo(DetailCard);
+export default DetailCard;

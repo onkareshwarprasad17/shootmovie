@@ -1,8 +1,8 @@
-import React from 'react';
-import Logo from '../../assets/LogoIcon.svg';
-import { HeartFilled } from '@ant-design/icons';
+import React from "react";
+import Logo from "../../assets/LogoIcon.svg";
+import { HeartFilled } from "@ant-design/icons";
 
-import './style.css';
+import "./style.css";
 
 const Footer = () => {
   return (
@@ -15,10 +15,10 @@ const Footer = () => {
       <div className="divider"></div>
       <section className="copyright">
         <span className="content">
-          Created with{' '}
+          Created with{" "}
           <span>
             <HeartFilled />
-          </span>{' '}
+          </span>{" "}
           by Onkareshwar
         </span>
       </section>

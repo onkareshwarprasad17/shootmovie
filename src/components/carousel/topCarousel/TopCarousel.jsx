@@ -1,34 +1,40 @@
-import React, { memo } from 'react';
-import DetailCard from '../card/DetailCard';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import './style.css';
-import GenreCard from '../card/GenreCard';
-import CastCard from '../../details/cast/card/CastCard';
-import TrailerCard from '../card/TrailerCard';
+import React, { memo } from "react";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
-const TopCarousel = ({ data, type }) => {
+import DetailCarousel from "../DetailCarousel";
+import GenreCard from "../card/GenreCard";
+import CastCarousel from "../CastCarousel";
+import TrailerCarousel from "../TrailerCarousel";
+
+import "./style.css";
+
+const TopCarousel = ({ data, type, isLoading }) => {
   return (
-    <div className="carousel-container">
-      <div className="left-arrow">
-        <LeftOutlined />
-      </div>
-      <div className="right-arrow">
-        <RightOutlined />
-      </div>
-      <div className="top-carousel">
-        {type === 'genre' &&
-          data?.map((item) => <GenreCard data={item} key={item.id} />)}
-        {type === 'cast' &&
-          data?.map((item) => (
-            <CastCard data={item} key={item.id || item.cast_id} />
-          ))}
-        {type === 'trailers' &&
-          data?.map((item) => <TrailerCard data={item} key={item.id} />)}
-
-        {type === 'detail' &&
-          data?.map((item) => <DetailCard data={item} key={item.id} />)}
-      </div>
-    </div>
+    <>
+      {!!(isLoading || data?.length) && (
+        <div className="carousel-container">
+          <div className="left-arrow">
+            <LeftOutlined />
+          </div>
+          <div className="right-arrow">
+            <RightOutlined />
+          </div>
+          <div className="top-carousel">
+            {type === "detail" && (
+              <DetailCarousel data={data} isLoading={isLoading} />
+            )}
+            {type === "genre" &&
+              data?.map((item) => <GenreCard data={item} key={item.id} />)}
+            {type === "cast" && (
+              <CastCarousel data={data} isLoading={isLoading} />
+            )}
+            {type === "trailers" && (
+              <TrailerCarousel data={data} isLoading={isLoading} />
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

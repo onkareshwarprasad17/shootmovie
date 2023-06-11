@@ -4,11 +4,12 @@
   display: flex;
   padding: 0.2em 1em;
   justify-content: space-between;
-  /* position: relative; */
+  position: relative;
   align-items: center;
   width: 100%;
   height: 60px;
   z-index: 1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header .brand-logo {

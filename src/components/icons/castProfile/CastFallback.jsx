@@ -1,6 +1,6 @@
-import React from 'react';
-import FallbackImage from '../../../assets/cast-fallback.svg';
-import './style.css';
+import React from "react";
+import FallbackImage from "../../../assets/cast-fallback.svg";
+import "./style.css";
 
 const CastFallback = () => {
   return (

@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import useFetch from '../../../redux/hooks/useFetch';
-import TopCarousel from '../../carousel/topCarousel/TopCarousel';
+import React, { useEffect, useState } from "react";
+import useFetch from "../../../redux/hooks/useFetch";
+import TopCarousel from "../../carousel/topCarousel/TopCarousel";
 
 const TopRatedMovies = () => {
-  const { data } = useFetch('/movie/top_rated');
+  const { data, loading } = useFetch("/movie/top_rated");
   const [topRatedMovies, setTopRatedMovies] = useState(null);
 
   useEffect(() => {
     const modifiedData = data?.results?.map((item) => {
       return {
         ...item,
-        media_type: 'movie',
+        media_type: "movie",
       };
     });
 
@@ -18,18 +18,14 @@ const TopRatedMovies = () => {
   }, [data]);
 
   return (
-    <>
-      {topRatedMovies && (
-        <div className="topRated">
-          <div className="heading">
-            <div className="title">Top Rated Movies</div>
-            <div className="more">More</div>
-          </div>
+    <div className="topRated">
+      <div className="heading">
+        <div className="title">Top Rated Movies</div>
+        {/* <div className="more">More</div> */}
+      </div>
 
-          <TopCarousel data={topRatedMovies} type={'detail'} />
-        </div>
-      )}
-    </>
+      <TopCarousel isLoading={loading} data={topRatedMovies} type={"detail"} />
+    </div>
   );
 };
 

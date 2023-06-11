@@ -1,13 +1,15 @@
-import React, { memo, useEffect, useState } from 'react';
-import useFetch from '../../../redux/hooks/useFetch';
-import TopCarousel from '../../carousel/topCarousel/TopCarousel';
+import React, { useContext } from "react";
+import useFetch from "../../../redux/hooks/useFetch";
+import { VideoContext } from "../../../context/VideoContext";
+import TopCarousel from "../../carousel/topCarousel/TopCarousel";
 
-const Similar = ({ mediaType, id }) => {
-  let { data } = useFetch(`/${mediaType}/${id}/similar`);
+const Similar = () => {
+  const { mediaType, id } = useContext(VideoContext);
+  let { data, loading } = useFetch(`/${mediaType}/${id}/similar`);
 
   const similarMedia = data?.results
     ?.map((item) => {
-      if (!item.hasOwnProperty('media_type')) {
+      if (!item.hasOwnProperty("media_type")) {
         return {
           ...item,
           media_type: mediaType,
@@ -20,26 +22,29 @@ const Similar = ({ mediaType, id }) => {
 
   return (
     <>
-      {similarMedia && similarMedia.length ? (
+      {!!(loading || similarMedia?.length) && (
         <div className="similar">
-          <div className="heading" role="heading">
-            <div className="title">
-              {`Similar ${
-                mediaType === 'tv'
-                  ? mediaType.toUpperCase() + ' Show'
-                  : mediaType.slice(0, 1).toUpperCase() +
-                    mediaType.slice(1).toLowerCase()
-              }${data?.results?.length >= 2 ? 's' : ''}`}
+          {similarMedia?.length && (
+            <div className="heading" role="heading">
+              <div className="title">
+                {`Similar ${
+                  mediaType === "tv"
+                    ? mediaType.toUpperCase() + " Show"
+                    : mediaType.slice(0, 1).toUpperCase() +
+                      mediaType.slice(1).toLowerCase()
+                }${data?.results?.length >= 2 ? "s" : ""}`}
+              </div>
             </div>
-          </div>
-
-          <TopCarousel data={similarMedia} type={'detail'} />
+          )}
+          <TopCarousel
+            data={similarMedia}
+            type={"detail"}
+            isLoading={loading}
+          />
         </div>
-      ) : (
-        ''
       )}
     </>
   );
 };
 
-export default memo(Similar);
+export default Similar;
